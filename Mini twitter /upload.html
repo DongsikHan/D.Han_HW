@@ -1,0 +1,32 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload</title>
+    </head>
+    <body>
+        <div class="container">
+            <p>
+                {% if comment %}
+                {{ comment }}
+                {% endif %}
+            </p> 
+
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+                <input type="file" name="photo"><br>
+                <input type="textfield" name="words"><br>
+                <input type="submit" value="submit">
+            </form>
+
+            <br><br>
+
+            {% for items in all_list %}
+            <img src="show/{{ items.key() }}"><br>
+            <p> {{ items['txt'] }} </p>
+            <p> {{ items['time_prop'] }} </p>
+            
+            {% endfor %}
+
+        </div>
+    </body>
+    </html>

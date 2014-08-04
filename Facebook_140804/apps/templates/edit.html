@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<ul class="entries">
+  <li><h2>{{ entry['id']+1 }}. {{ entry['title'] }}</h2></li>
+  {{ entry['contents'] }} <br><br>
+
+  <form action="{{ url_for('editting_entry', key=entry['id']) }}" method="get" class="add-entry">
+    <dl>
+      <dt>Title:
+      <dd><input type="text" size=30 name="title">
+      <dt>Text:
+      <dd><textarea name="contents" rows=5 cols=40></textarea>
+      <dd><input type="submit" value="Confirm">
+    </dl>
+  </form>
+   <li> <a href="{{ url_for('show_entries') }}" class="btn btn-danger"> Cancel </a></li>
+
+</ul>  
+{% endblock %}

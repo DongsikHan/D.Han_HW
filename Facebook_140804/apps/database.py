@@ -41,7 +41,7 @@ class Database(object):
         return self.database[:10]
 
     def maxlike_3(self):
-        arr = self.database
+        arr = list(self.database)
         for i in range(0, len(arr)):
             check = arr[i]
             for j in range(i+1, len(arr)):
